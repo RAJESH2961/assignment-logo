@@ -1,0 +1,9 @@
+Django==4.2.5              # For building the web application
+reportlab==3.6.13          # For generating PDF documents with logos
+Pillow==10.0.1             # For image processing and handling logos
+numpy==1.26.0              # For numerical operations (if required)
+django-crispy-forms==2.0   # For better form rendering and UI
+gunicorn==21.1.0           # For deploying the Django app
+psycopg2==2.9.7            # For PostgreSQL database (if using PostgreSQL)
+mysqlclient==2.2.1         # For MySQL database (if using MySQL)
+django-environ==0.10.0     # For managing environment variables

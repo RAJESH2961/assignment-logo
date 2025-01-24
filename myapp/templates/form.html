@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Logo Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px -10px;
+            /* padding-right: 20px; */
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"],
+        .btn-preview {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+
+        input[type="submit"]:hover,
+        .btn-preview:hover {
+            background-color: #45a049;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Assignment Logo Generator</h2>
+    <form action="{% url 'generate_pdf' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="rollnumber">Roll Number:</label>
+        <input type="text" id="rollnumber" name="rollnumber" placeholder="Enter your roll number" required>
+
+        <label for="assignment">Assignment Number:</label>
+        <input type="text" id="assignment" name="assignment" placeholder="Enter the assignment number">
+
+        <label for="subject_name">Subject Name:</label>
+        <input type="text" id="subject_name" name="subject_name" placeholder="Enter the subject name" required>
+
+        <label for="submission_date">Submission Date:</label>
+        <input type="date" id="submission_date" name="submission_date" required>
+
+        <label for="submission_to">Submission To:</label>
+        <input type="text" id="submission_to" name="submission_to" placeholder="Enter the recipient's name" required>
+
+        <label for="image">Upload Collage Logo:</label>
+        <input type="file" id="image" name="image" accept="image/*,.pdf">
+
+        <div class="form-actions">
+            <input type="submit" value="Generate PDF">
+            <!-- <a href="/generate_pdf/?action=preview" class="btn-preview">Preview PDF</a> -->
+        </div>
+    </form>
+</body>
+
+</html>
